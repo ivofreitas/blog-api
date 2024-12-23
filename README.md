@@ -43,7 +43,7 @@ mvn spring-boot:run
 ```
 This will start the server at http://localhost:8080.
 
-Endpoints
+## Endpoints
 1. GET /api/posts
    This endpoint retrieves all blog posts with their titles and the number of comments associated with each post. The response is paginated.
 

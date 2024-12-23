@@ -1,4 +1,4 @@
-# Blog API - README
+# Blog API
 
 ## Short Description
 

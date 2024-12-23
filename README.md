@@ -170,3 +170,4 @@ Response:
 6. API Documentation
 7. Rate limiting
 8. Backup/Disaster recovery
+9. Security (authentication, authorization)

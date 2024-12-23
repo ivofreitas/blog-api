@@ -62,6 +62,6 @@ public class BlogPostController {
     @PostMapping("/{id}/comments")
     public ResponseEntity<Response<Comment>> addCommentToPost(@PathVariable Long id, @RequestBody Comment comment) {
         Comment createdComment = blogPostService.addCommentToPost(id, comment);
-        return ResponseEntity.ok(new Response<>(new Header(HttpStatus.OK), createdComment));
+        return new ResponseEntity<>(new Response<>(new Header(HttpStatus.CREATED), createdComment), HttpStatus.CREATED);
     }
 }

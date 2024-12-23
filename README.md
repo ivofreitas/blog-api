@@ -153,7 +153,7 @@ Response:
 {
   "header": {
     "timestamp": "12/23/2024 10:47:03",
-    "status": "OK"
+    "status": "CREATED"
   },
   "result": {
     "text": "Excellent!"

@@ -160,3 +160,11 @@ Response:
   }
 }
 ```
+
+## Next steps
+1. Input validation
+2. Unit/Integration testing
+2. Observability (logs, metrics, traces)
+3. Cloud setup
+4. CI/CD automation
+5. API Documentation

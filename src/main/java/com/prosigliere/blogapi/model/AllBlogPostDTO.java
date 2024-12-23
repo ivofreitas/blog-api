@@ -2,9 +2,6 @@ package com.prosigliere.blogapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class AllBlogPostDTO {
     @JsonProperty(value = "title")
     private String title;

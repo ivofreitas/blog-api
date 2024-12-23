@@ -164,7 +164,9 @@ Response:
 ## Next steps
 1. Input validation
 2. Unit/Integration testing
-2. Observability (logs, metrics, traces)
-3. Cloud setup
-4. CI/CD automation
-5. API Documentation
+3. Observability (logs, metrics, traces, dashboards)
+4. Cloud setup
+5. CI/CD automation
+6. API Documentation
+7. Rate limiting
+8. Backup/Disaster recovery

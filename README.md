@@ -1,7 +1,5 @@
 # Blog API
 
-## Short Description
-
 This project is a **Blog API** developed using **Spring Boot** with **Spring Data JPA** and **MySQL**. It provides endpoints for creating blog posts, viewing blog posts along with the number of associated comments, and adding comments to specific posts.
 
 The API supports pagination for fetching blog posts, and the data is stored in a **MySQL** database.

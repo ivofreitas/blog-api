@@ -6,15 +6,6 @@ The API supports pagination for fetching blog posts, and the data is stored in a
 
 ## List of Dependencies
 
-The project depends on the following technologies:
-
-1. **Java 23**: The project is built using Java 23, leveraging the latest features and performance improvements.
-2. **Maven**: The project is built and managed using Maven for dependency management and build lifecycle.
-3. **MySQL**: The database used to store blog posts and comments.
-4. **Docker (Optional)**: If you prefer running the application in a containerized environment, Docker can be used to run the MySQL database.
-
-### How to Obtain the Dependencies
-
 - **Java 23**: Download and install Java 23 from the [official Java website](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html) or use a version manager like **SDKMAN**.
 - **Maven**: If Maven is not already installed, download it from [Maven's official site](https://maven.apache.org/download.cgi) and follow the installation instructions.
 - **MySQL**: You can either install MySQL locally or use Docker (explained below). To install MySQL, follow the instructions from the [official MySQL website](https://dev.mysql.com/doc/refman/8.0/en/installing.html).

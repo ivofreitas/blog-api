@@ -30,6 +30,10 @@ public class BlogPost {
         return title;
     }
 
+    public Long getID() {
+        return id;
+    }
+
     public String getContent() {
         return content;
     }

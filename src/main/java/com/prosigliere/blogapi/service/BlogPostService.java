@@ -2,6 +2,8 @@ package com.prosigliere.blogapi.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +25,8 @@ public class BlogPostService {
 
     private CommentRepository commentRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(BlogPostService.class);
+
     public BlogPostService(BlogPostRepository blogPostRepository, CommentRepository commentRepository) {
         this.blogPostRepository = blogPostRepository;
         this.commentRepository = commentRepository;
@@ -36,10 +40,13 @@ public class BlogPostService {
      * @return a Page of AllBlogPostDTO containing blog post summaries
      */
     public Page<AllBlogPostDTO> getAllPosts(int page, int size) {
+        logger.info("Fetching all blog posts - Page: {}, Size: {}", page, size);
+
         Pageable pageable = PageRequest.of(page, size);
         Page<BlogPost> blogPosts = blogPostRepository.findAll(pageable);
 
         if (blogPosts.isEmpty()) {
+            logger.warn("No blog posts found for Page: {}, Size: {}", page, size);
             return Page.empty(pageable);
         }
 
@@ -48,6 +55,7 @@ public class BlogPostService {
                 .map(blogPost -> new AllBlogPostDTO(blogPost.getTitle(), blogPost.getCommentsCount()))
                 .toList();
 
+        logger.info("Returning {} blog posts for Page: {}, Size: {}", allBlogPosts.size(), page, size);
         return new PageImpl<>(allBlogPosts, pageable, blogPosts.getTotalElements());
     }
 
@@ -59,7 +67,14 @@ public class BlogPostService {
      * @throws BlogPostNotFoundException if the blog post with the given ID is not found
      */
     public SingleBlogPostDTO getPostById(Long id) {
-        BlogPost post = blogPostRepository.findById(id).orElseThrow(BlogPostNotFoundException::new);;
+        logger.info("Fetching blog post with ID: {}", id);
+
+        BlogPost post = blogPostRepository.findById(id).orElseThrow(() -> {
+            logger.error("Blog post with ID {} not found", id);
+            return new BlogPostNotFoundException(String.format("Blog post with ID %d not found", id));
+        });
+
+        logger.info("Successfully retrieved blog post with ID: {}", id);
         return new SingleBlogPostDTO(post.getTitle(), post.getContent(), post.getComments());
     }
 
@@ -70,21 +85,33 @@ public class BlogPostService {
      * @return the saved BlogPost entity
      */
     public BlogPost createPost(BlogPost blogPost) {
-        return blogPostRepository.save(blogPost);
+        logger.info("Creating a new blog post with Title: {}", blogPost.getTitle());
+        BlogPost post = blogPostRepository.save(blogPost);
+        logger.info("Successfully created blog post with Title: {}", post.getTitle());
+        return post;
     }
 
     /**
      * Adds a comment to a blog post.
      *
-     * @param postId the ID of the blog post to add the comment to
+     * @param postID the ID of the blog post to add the comment to
      * @param comment the Comment entity to add
      * @return the saved Comment entity
      * @throws BlogPostNotFoundException if the blog post with the given ID is not found
      */
-    public Comment addCommentToPost(Long postId, Comment comment) {
-        BlogPost post = blogPostRepository.findById(postId).orElseThrow(BlogPostNotFoundException::new);
+    public Comment addCommentToPost(Long postID, Comment comment) {
+        logger.info("Adding a comment to blog post with ID: {}", postID);
+
+        BlogPost post = blogPostRepository.findById(postID).orElseThrow(() -> {
+            logger.error("Blog post with ID {} not found. Cannot add comment.", postID);
+            return new BlogPostNotFoundException(String.format("Blog post with ID %d not found", postID));
+        });
         comment.setBlogPost(post);
-        return commentRepository.save(comment);
+
+        Comment savedComment = commentRepository.save(comment);
+
+        logger.info("Successfully added comment to blog post with ID: {}. Comment ID: {}", postID, savedComment.getID());
+        return savedComment;
     }
 }
 

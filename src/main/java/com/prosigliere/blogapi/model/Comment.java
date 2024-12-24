@@ -28,6 +28,10 @@ public class Comment {
     @JoinColumn(name = "blog_post_id")
     private BlogPost blogPost;
 
+    public Long getID() {
+        return id;
+    }
+
     public void setBlogPost(BlogPost blogPost) {
         this.blogPost = blogPost;
     }

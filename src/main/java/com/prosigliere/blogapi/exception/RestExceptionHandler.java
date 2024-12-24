@@ -13,8 +13,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.prosigliere.blogapi.model.Response;
 
-import jakarta.persistence.EntityNotFoundException;
-
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -36,10 +34,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(response, response.getHeader().getStatus());
     }
 
-    @ExceptionHandler(EntityNotFoundException.class)
-    protected ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex){
+    @ExceptionHandler(BlogPostNotFoundException.class)
+    protected ResponseEntity<Object> handleEntityNotFound(BlogPostNotFoundException ex){
         try {
-            return buildResponseEntity(new Response<>(HttpStatus.NOT_FOUND, "Entity not found", ex));
+            return buildResponseEntity(new Response<>(HttpStatus.NOT_FOUND, "Blog post not found", ex));
         } catch (JsonProcessingException e) {
             throw new JsonException(e.getMessage());
         }

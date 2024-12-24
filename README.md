@@ -15,8 +15,8 @@ The API supports pagination for fetching blog posts, and the data is stored in a
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/ivofreitas/blog-api
+   cd blog-api
    ```
 2. Install dependencies: If you're using Maven, you can install the necessary dependencies by running:
 

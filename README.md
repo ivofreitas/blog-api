@@ -5,11 +5,7 @@ This project is a **Blog API** developed using **Spring Boot** with **Spring Dat
 The API supports pagination for fetching blog posts, and the data is stored in a **MySQL** database.
 
 ## List of Dependencies
-
-- **Java 23**: Download and install Java 23 from the [official Java website](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html) or use a version manager like **SDKMAN**.
-- **Maven**: If Maven is not already installed, download it from [Maven's official site](https://maven.apache.org/download.cgi) and follow the installation instructions.
-- **MySQL**: You can either install MySQL locally or use Docker (explained below). To install MySQL, follow the instructions from the [official MySQL website](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
-- **Docker/Docker-compose (Optional)**: Install Docker by following the [official Docker installation guide](https://docs.docker.com/get-docker/).
+- **Docker/Docker-compose**: Install Docker by following the [official Docker installation guide](https://docs.docker.com/get-docker/).
 
 ## Local Setup
 
@@ -18,22 +14,15 @@ The API supports pagination for fetching blog posts, and the data is stored in a
    git clone https://github.com/ivofreitas/blog-api
    cd blog-api
    ```
-2. Install dependencies: If you're using Maven, you can install the necessary dependencies by running:
+2. Run the application
 
 ```bash
-./mvnw clean install
+docker-compose up --build
 ```
-3. Configure MySQL: Ensure that MySQL is running. 
 
-```bash
-docker-compose up -d
-```
-4. Run the application: Start the application using Maven:
-
-```bash
-./mvnw spring-boot:run
-```
 This will start the server at http://localhost:8080.
+
+
 
 ## Endpoints
 1. GET /api/posts

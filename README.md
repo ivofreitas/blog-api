@@ -11,14 +11,6 @@ The API supports pagination for fetching blog posts, and the data is stored in a
 - **MySQL**: You can either install MySQL locally or use Docker (explained below). To install MySQL, follow the instructions from the [official MySQL website](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
 - **Docker/Docker-compose (Optional)**: Install Docker by following the [official Docker installation guide](https://docs.docker.com/get-docker/).
 
-### Docker Setup (Optional)
-
-You can use Docker to run a **MySQL** container instead of installing MySQL locally. Here is the command to run MySQL using Docker:
-
-```bash
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=blogdb -p 3306:3306 -d mysql:8
-```
-
 ## Local Setup
 
 1. **Clone the repository**:

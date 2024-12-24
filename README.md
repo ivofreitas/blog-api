@@ -31,7 +31,7 @@ docker-compose up -d
 4. Run the application: Start the application using Maven:
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 This will start the server at http://localhost:8080.
 

@@ -155,5 +155,4 @@ Response:
 4. CI/CD automation
 5. API Documentation
 6. Rate limiting
-7. Backup/Disaster recovery
-8. Security (authentication, authorization)
+7. Security (authentication, authorization)

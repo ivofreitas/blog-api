@@ -20,8 +20,8 @@ The API supports pagination for fetching blog posts, and the data is stored in a
 docker-compose up --build
 ```
 
-This will start the server at http://localhost:8080.
-Start Prometheus at http://localhost:9090.
+This will start the server at http://localhost:8080.  
+Start Prometheus at http://localhost:9090.  
 Start Grafana at http://localhost:3000 (login: admin, password: admin).
 
 ## Grafana Dashboard

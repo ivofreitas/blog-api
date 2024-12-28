@@ -21,8 +21,14 @@ docker-compose up --build
 ```
 
 This will start the server at http://localhost:8080.
+Start Prometheus at http://localhost:9090.
+Start Grafana at http://localhost:3000 (login: admin, password: admin).
 
+## Grafana Dashboard
 
+1. Open http://localhost:3000 in your browser.
+2. Navigate to the Spring Boot Observability dashboard.
+3. Observe metrics and trends in real time.
 
 ## Endpoints
 1. GET /api/posts
@@ -145,10 +151,9 @@ Response:
 ## Next steps
 1. Input validation
 2. Unit/Integration testing
-3. Observability (metrics, traces, dashboards)
-4. Cloud setup
-5. CI/CD automation
-6. API Documentation
-7. Rate limiting
-8. Backup/Disaster recovery
-9. Security (authentication, authorization)
+3. Cloud setup
+4. CI/CD automation
+5. API Documentation
+6. Rate limiting
+7. Backup/Disaster recovery
+8. Security (authentication, authorization)

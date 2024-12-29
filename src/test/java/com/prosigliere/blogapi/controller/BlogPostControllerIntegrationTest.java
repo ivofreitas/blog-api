@@ -95,8 +95,8 @@ class BlogPostControllerIntegrationTest {
 
     @Test
     void givenInvalidPostId_whenGetPostById_thenReturnsNotFound() throws Exception {
-        mockMvc.perform(get("/api/posts/{id}", 999)) // Non-existing Post ID
-                .andExpect(status().isNotFound()) // HTTP 404
+        mockMvc.perform(get("/api/posts/{id}", 999))
+                .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.header.status").value("NOT_FOUND"))
                 .andExpect(jsonPath("$.message").value("Blog post not found"))
                 .andExpect(jsonPath("$.internal_message").value("Blog post with ID 999 not found"));

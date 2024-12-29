@@ -150,8 +150,6 @@ Response:
 
 ## Next steps
 1. Input validation
-2. Cloud setup
-3. CI/CD automation
-4. API Documentation
-5. Rate limiting
-6. Security (authentication, authorization)
+2. Caching
+3. API Documentation and versioning
+4. Rate limiting
